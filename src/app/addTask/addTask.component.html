@@ -1,0 +1,21 @@
+<div>
+    <div class="col-md-10 well" region="Add task">
+        <form class="text-justify form-group">
+            <label for="addTask" aria-label="Enter a task to add to the list">Task:</label><br/>
+            <input name="addTask" type="text" #task />
+            <input class="btn btn-default btn-sm" type="button" value="add" (click)="addTask(task.value)" />
+        </form>
+    </div>
+    <div class="col-md-10" region="To-do list">
+        <table class="table table-hover table-bordered text-justify" aria-summary="This table lists the tasks in to-do list">
+            <tr>
+                <th><strong>Tasks</strong></th>
+                <th class="text-center">Remove</th>
+            </tr>
+            <tr *ngFor="let task of tasks; let i = index">
+                <td>{{task}}</td>
+                <td class="text-center"><button class="btn-link" aria-label="Enter to remove the task from the list" (click)="removeTask(i)"><span class="glyphicon glyphicon-trash"></span></button></td>
+            </tr>
+        </table>
+    </div>
+</div>
